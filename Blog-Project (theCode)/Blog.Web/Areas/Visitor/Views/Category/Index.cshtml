@@ -1,0 +1,21 @@
+﻿@model IEnumerable<Blog.Entities.Models.Category>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+
+    Layout = "~/Views/Shared/_main.cshtml";
+}
+<div class="container mt-5">
+    <h2>All Categories</h2>
+    <ul class="list-group">
+        @foreach (var category in Model)
+        {
+            <li class="list-group-item">
+                <h4>
+                    <a asp-action="GetCategory" asp-route-id="@category.Id">@category.Name</a>
+                </h4>
+                <p>@category.Description</p>
+                <small>Created on: @category.CreatedTime.ToString("MMM dd, yyyy")</small>
+            </li>
+        }
+    </ul>
+</div>

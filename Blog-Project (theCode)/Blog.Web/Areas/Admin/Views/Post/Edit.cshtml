@@ -1,0 +1,112 @@
+﻿@model PostCategories
+
+@{
+    ViewBag.PageTitle = "Post Management";
+    ViewBag.CardTitle = "Edit Post";
+    Layout = "~/Views/Shared/_dashboard.cshtml";
+}
+<form asp-action="Edit" method="post" enctype="multipart/form-data">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    <div class="row">
+        <div class="col-md-4">
+            <input type="hidden" asp-for="post.Id" />
+            <input type="hidden" asp-for="post.applicationUserId" />
+            <input type="hidden" asp-for="post.Img" />
+
+            <div class="form-group">
+                <label asp-for="post.Title" class="control-label"></label>
+                <input asp-for="post.Title" class="form-control" />
+                <span asp-validation-for="post.Title" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="post.Img" class="control-label"></label>
+                <input type="file" name="file" id="imgfile" class="form-control" onchange="fillimg(event);" />
+            </div>
+
+            <div class="form-group">
+                <label asp-for="post.CategoryId" class="control-label"></label>
+                <select asp-for="post.CategoryId" class="form-control" asp-items="Model.CategoryList">
+                    <option disabled selected>-- Select Category --</option>
+                </select>
+            </div>
+
+
+        </div>
+        <div class="col-md-4">
+            <div class="container">
+                <img id="ImagePrevew" src="~/@Model.post.Img"  width="300" height="300" />
+            </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="post.Content" class="control-label"></label>
+        <!-- Summernote Editor for post.Content -->
+        <section class="content">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card card-outline card-info">
+                        <div class="card-header">
+                            <h3 class="card-title">Content</h3>
+                        </div>
+                        <div class="card-body">
+                            <textarea id="summernote"></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <span asp-validation-for="post.Content" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <input type="submit" value="Save Edit" class="btn btn-success" />
+    </div>
+</form>
+
+
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+@section Scripts {
+    <script src="~/dashboard/Editor/js/summernote-bs4.min.js"></script>
+    <script>
+        var fillimg = function (event) {
+            var imgholder = document.getElementById("ImagePrevew");
+            imgholder.src = URL.createObjectURL(event.target.files[0]);
+        }
+
+        $(document).ready(function () {
+            // Initialize Summernote editor
+            $('#summernote').summernote({
+                height: 300, // Set the height of the editor
+                toolbar: [
+                    ['style', ['bold', 'italic', 'underline', 'clear']],
+                    ['font', ['strikethrough', 'superscript', 'subscript']],
+                    ['fontsize', ['fontsize']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['height', ['height']],
+                    ['insert', ['link', 'hr']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+
+            // Set the value of Summernote with the content from the model
+            $('#summernote').summernote('code', '@Html.Raw(Model.post.Content)');
+
+            // On form submit, set the value of post.Content
+            $('form').on('submit', function () {
+                var content = $('#summernote').val();
+                $('<input>').attr({
+                    type: 'hidden',
+                    name: 'post.Content',
+                    value: content
+                }).appendTo('form');
+            });
+        });
+    </script>
+}

@@ -1,0 +1,173 @@
+﻿@using Blog.Entities.Models
+@using System.Security.Claims;
+@model Post
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    Layout = "~/Views/Shared/_main.cshtml";
+}
+
+<!-- Page content-->
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-8">
+            <!-- Post content-->
+            <article>
+                <!-- Post header-->
+                <header class="mb-4">
+                    <!-- Post title-->
+                    <h1 class="fw-bolder mb-1">@Model.Title</h1>
+                    <!-- Post meta content-->
+                    <div class="text-muted fst-italic mb-2">Posted on @Model.CreatedAt.Date by @Model.ApplicationUser.Name</div>
+                    <!-- Post categories-->
+                    <a class="badge bg-secondary text-decoration-none link-light" href="#!">@Model.Category.Name</a>
+                </header>
+                <!-- Preview image figure-->
+                <figure class="mb-4"><img class="img-fluid rounded" src="~/@Model.Img" alt="Not found" /></figure>
+                <!-- Post content-->
+                <section class="mb-5">
+                    @Html.Raw(Model.Content)
+                </section>
+            </article>
+
+
+
+            <!-- Comments section-->
+            <section class="mb-5">
+                <div class="card bg-light shadow-sm">
+                    <div class="card-body">
+                        <!-- Comment form -->
+                        <h5 class="mb-4">Leave a Comment</h5>
+                        <form id="commentForm" class="mb-4">
+                            <textarea id="commentText" class="form-control" rows="3" placeholder="Join the discussion and leave a comment!" required></textarea>
+                            <input type="hidden" id="postId" value="@Model.Id" />
+                            <button type="submit" class="btn btn-primary mt-3 px-4">Add Comment</button>
+                        </form>
+
+                        <!-- Comments container -->
+                        <!-- Comments container -->
+                        <h5 class="mb-4">Comments</h5>
+                        <div id="commentsContainer">
+                            <!-- Render comments from the Post model -->
+                            @if (Model.comments != null && Model.comments.Any())
+                            {
+                                @foreach (var comment in Model.comments)
+                                {
+                                    <div class="d-flex mb-4" id="comment-@comment.Id">
+                                        <div class="flex-shrink-0">
+                                            <img class="rounded-circle shadow-sm" src="https://dummyimage.com/50x50/ced4da/6c757d.jpg" alt="Profile Image" />
+                                        </div>
+                                        <div class="ms-3">
+                                            <div class="fw-bold">@comment?.applicationUser.Name</div>
+                                            <p class="text-muted small">@comment.DateTime.ToString("MMM dd, yyyy - hh:mm tt")</p>
+                                            <p>@comment?.Contant</p>
+                                            @{
+                                                string userId = null;
+    
+                                                if (User?.Identity is ClaimsIdentity claimsIdentity)
+                                                {
+                                                    var claim = claimsIdentity.FindFirst(ClaimTypes.NameIdentifier);
+                                                    if (claim != null)
+                                                    {
+                                                        userId = claim.Value;
+                                                    }
+                                                }
+                                            }
+                                                @if (comment?.applicationUserId == userId)
+                                            {
+                                                <button class="btn btn-danger btn-sm delete-comment" data-comment-id="@comment?.Id">Delete</button>
+                                            }
+                                        </div>
+                                    </div>
+                                }
+                            }
+                            else
+                            {
+                                <p class="text-muted">No comments yet. Be the first to comment!</p>
+                            }
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+        </div>
+        <!-- Side widgets-->
+        <div class="col-lg-4">
+            <!-- Categories widget-->
+            <div class="card mb-4">
+                <div class="card-header">Categories</div>
+                <div class="card-body">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="list-unstyled mb-0">
+                                @foreach (var category in ViewBag.Categories)
+                                {
+                                    <li><a href="/Visitor/Category/GetCategory/@category.Id">@category.Name</a></li>
+                                }
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Side widget-->
+        </div>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            var postId = $('#postId').val();
+
+            // Handle comment submission
+            $('#commentForm').submit(function (e) {
+                e.preventDefault();
+                var commentText = $('#commentText').val();
+                if (commentText.trim() === "") {
+                    alert("Comment cannot be empty!");
+                    return;
+                }
+
+                $.ajax({
+                    url: '/Visitor/Comment/AddComment',
+                    type: 'POST',
+                    data: {
+                        postId: postId,
+                        text: commentText
+                    },
+                    success: function () {
+                        $('#commentText').val('');
+                        location.reload();
+                    },
+                    error: function (xhr, status, error) {
+                        alert("Error adding comment: " + xhr.responseText + "\nStatus: " + status + "\nError: " + error);
+                    }
+                });
+            });
+
+            // Handle comment deletion
+            $('#commentsContainer').on('click', '.delete-comment', function () {
+                var commentId = $(this).data('comment-id');
+
+                $.ajax({
+                    url: '/Visitor/Comment/DeleteComment',
+                    type: 'POST',
+                    data: {
+                        commentId: commentId
+                    },
+                    success: function () {
+                        // Remove the comment from the DOM
+                        $('#comment-' + commentId).remove();
+                    },
+                    error: function (xhr, status, error) {
+                        alert("Error deleting comment: " + xhr.responseText + "\nStatus: " + status + "\nError: " + error);
+                    }
+                });
+            });
+        });
+    </script>
+}

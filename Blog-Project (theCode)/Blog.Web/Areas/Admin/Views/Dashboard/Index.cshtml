@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Blog.Entities.Models.Comment>
+@{
+    ViewBag.PageTitle = "Dashboard Category";
+    ViewBag.CardTitle = "Dashboard";
+    Layout = "~/Views/Shared/_dashboard.cshtml";
+}
+
+
+
+<div class="row mb-4">
+    <div class="col-lg-3 col-sm-6">
+        <div class="card text-white bg-primary">
+            <div class="card-body">
+                <h2 class="card-title">Posts</h2>
+                <p class="card-text">@ViewBag.PostCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card text-white bg-success">
+            <div class="card-body">
+                <h2 class="card-title">Comments</h2>
+                <p class="card-text">@ViewBag.CommentCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card text-white bg-info">
+            <div class="card-body">
+                <h2 class="card-title">Users</h2>
+                <p class="card-text">@ViewBag.UserCount</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-lg-3 col-sm-6">
+        <div class="card text-white bg-warning">
+            <div class="card-body">
+                <h2 class="card-title">Categories</h2>
+                <p class="card-text">@ViewBag.CategoryCount</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<h4>Last Comments</h4>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Post</th>
+            <th>User</th>
+            <th>Content</th>
+            <th>Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var comment in Model)
+        {
+            <tr>
+                <td>@comment.Post.Title</td>
+                <td>@comment.applicationUser.Name</td>
+                <td>@comment.Contant</td>
+                <td>@comment.DateTime.ToString("MMM dd, yyyy - hh:mm tt")</td>
+            </tr>
+        }
+    </tbody>
+</table>

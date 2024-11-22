@@ -1,0 +1,34 @@
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.DataAccess.deps.json
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.DataAccess.dll
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.DataAccess.pdb
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.AssemblyInfoInputs.cache
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.AssemblyInfo.cs
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.dll
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\refint\Blog.DataAccess.dll
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.pdb
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\ref\Blog.DataAccess.dll
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.Entities.dll
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.Entities.pdb
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.csproj.AssemblyReference.cache
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.Dat.4C31A8E2.Up2Date
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.DataAccess.runtimeconfig.json
+C:\Users\ahmed\Desktop\blog project\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.genruntimeconfig.cache
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.DataAccess.deps.json
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.DataAccess.runtimeconfig.json
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.DataAccess.dll
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.DataAccess.pdb
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.Entities.dll
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\bin\Debug\net8.0\Blog.Entities.pdb
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.csproj.AssemblyReference.cache
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.AssemblyInfoInputs.cache
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.AssemblyInfo.cs
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.csproj.CoreCompileInputs.cache
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.Dat.4C31A8E2.Up2Date
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.dll
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\refint\Blog.DataAccess.dll
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.pdb
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\Blog.DataAccess.genruntimeconfig.cache
+C:\Users\ahmed\Desktop\bin Recycile for blog project\cheak point\Blog\Blog.DataAccess\obj\Debug\net8.0\ref\Blog.DataAccess.dll
